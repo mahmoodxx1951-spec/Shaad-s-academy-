@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SHAAD’S ACADEMY – TOSS Coaching & Computer Education, Hyderabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root{--bg:#0B132B;--bg2:#0F172A;--ink:#fff;--muted:#94A3B8;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.12);--cyan:#00F5D4;--gold:#FFB703;--wa:#10B981;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eef3ff;--bg2:#e2e9fb;--ink:#0B132B;--muted:#4b5677;--card:rgba(255,255,255,.8);--line:rgba(11,19,43,.14)}}
+:root[data-theme="light"]{--bg:#eef3ff;--bg2:#e2e9fb;--ink:#0B132B;--muted:#4b5677;--card:rgba(255,255,255,.8);--line:rgba(11,19,43,.14)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Poppins,system-ui,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.strip{background:#070d20;color:#cdd6f6;font-size:12.5px;text-align:center;padding:8px 12px}
+.strip b{color:var(--gold);font-weight:500}
+header{position:sticky;top:10px;z-index:40;padding:0 12px}
+.nav{max-width:1160px;margin:10px auto 0;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 16px;border-radius:20px;background:rgba(11,19,43,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);color:#fff;box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:.04em;white-space:nowrap}
+.logo i{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--gold));display:grid;place-items:center;color:#0B132B;font-style:normal;font-size:20px;box-shadow:3px 3px 0 #0a5f55,6px 6px 0 rgba(0,0,0,.35);transform:rotate(-6deg)}
+.links{display:flex;gap:4px;font-size:13px}
+.links a{padding:8px 12px;border-radius:10px;color:#a9b4d6;transition:.2s}
+.links a:hover{color:#fff}.links a.on{color:var(--cyan);background:rgba(255,255,255,.07)}
+.badge{font-size:11px;color:var(--gold);border:1px solid rgba(255,183,3,.4);border-radius:999px;padding:5px 12px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px Poppins;border:0;border-radius:999px;padding:13px 28px;cursor:pointer;color:#04110C;background:var(--wa);transition:transform .2s,box-shadow .2s;box-shadow:0 5px 0 #0a7a58,0 16px 30px -10px rgba(16,185,129,.7)}
+.btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #0a7a58}
+.btn.sm{padding:9px 18px;font-size:12.5px}
+.btn.ghost{background:rgba(255,255,255,.08);color:#fff;box-shadow:0 5px 0 rgba(255,255,255,.12),0 16px 30px -12px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.2)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:24px}
+.hero{position:relative;color:#fff;overflow:hidden;background:radial-gradient(ellipse at 70% 40%,#16307a 0%,#0B132B 55%,#070d20 100%);margin-top:-72px;padding-top:72px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;min-height:min(780px,92vh);gap:10px}
+.hero h1{font-size:clamp(36px,5.4vw,66px);line-height:1.06;margin:18px 0;font-weight:800}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#b4c0e6;max-width:470px;margin:0 0 22px}
+.pill{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;border:1px solid rgba(255,183,3,.4);color:var(--gold);padding:7px 16px;border-radius:999px;background:rgba(255,183,3,.07)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chips span{font-size:12px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.stage{position:relative;height:min(640px,78vh)}
+.stage canvas{width:100%;height:100%;display:block}
+.scroll{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-size:11px;color:#8d9bc9;letter-spacing:.2em}
+section{padding:96px 0 0}
+.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:600}
+h2{font-size:clamp(28px,4vw,44px);line-height:1.12;margin:10px 0 14px}
+.lead{color:var(--muted);max-width:560px;margin:0 0 40px}
+.center{text-align:center}.center .lead{margin-inline:auto}
+.grid{display:grid;gap:24px;perspective:1200px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.t3d{position:relative;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .35s,border-color .35s;backdrop-filter:blur(8px)}
+.t3d:hover{border-color:var(--cyan);box-shadow:0 30px 60px -24px rgba(0,245,212,.45),0 0 0 1px rgba(255,183,3,.3)}
+.t3d .z{transform:translateZ(46px)}.t3d .z2{transform:translateZ(24px)}
+.ico{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:28px;background:linear-gradient(135deg,var(--cyan),var(--gold));box-shadow:4px 6px 0 rgba(0,0,0,.28)}
+.t3d h3{margin:18px 0 8px;font-size:20px}
+.t3d p{color:var(--muted);font-size:14px;margin:0}
+.feat{list-style:none;padding:0;margin:14px 0 0;font-size:13.5px;color:var(--muted);max-height:0;opacity:0;overflow:hidden;transition:max-height .5s,opacity .5s}
+.t3d:hover .feat{max-height:130px;opacity:1}
+@media(hover:none){.feat{max-height:none;opacity:1}}
+.feat li{padding:3px 0 3px 22px;position:relative}.feat li:before{content:"✓";color:var(--wa);position:absolute;left:0;font-weight:700}
+.more{display:inline-block;margin-top:14px;color:var(--wa);font-weight:600;font-size:14px}
+.slot{display:flex;gap:20px;align-items:center}
+.slot em{font-style:normal;font-size:52px;filter:drop-shadow(4px 8px 6px rgba(0,0,0,.4))}
+.slot b{display:block;font-size:clamp(22px,3vw,32px);line-height:1.2}
+.slot span{color:var(--muted);font-size:13.5px}
+.m b{color:var(--gold)}.e b{color:var(--cyan)}
+.split{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
+.scene3{height:340px;display:grid;place-items:center;perspective:900px}
+.cube{width:200px;height:200px;position:relative;transform-style:preserve-3d;animation:spin 16s linear infinite}
+.cube:hover{animation-play-state:paused}
+.cube div{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-weight:600;font-size:15px;padding:12px;color:#fff;border:1px solid var(--cyan);background:linear-gradient(135deg,rgba(0,245,212,.22),rgba(255,183,3,.14));box-shadow:inset 0 0 30px rgba(0,245,212,.25)}
+.f1{transform:translateZ(100px)}.f2{transform:rotateY(90deg) translateZ(100px)}.f3{transform:rotateY(180deg) translateZ(100px)}.f4{transform:rotateY(-90deg) translateZ(100px)}.f5{transform:rotateX(90deg) translateZ(100px)}.f6{transform:rotateX(-90deg) translateZ(100px)}
+@keyframes spin{from{transform:rotateX(-20deg) rotateY(0)}to{transform:rotateX(-20deg) rotateY(360deg)}}
+.num{font-size:46px;font-weight:800;line-height:1;background:linear-gradient(180deg,var(--cyan),transparent);-webkit-background-clip:text;background-clip:text;color:transparent}
+.steps .t3d.act{border-color:var(--gold);transform:translateY(-8px) translateZ(30px)}
+.ringbox{height:330px;perspective:1400px;position:relative;margin-top:20px}
+.ring{--r:310px;position:absolute;left:50%;top:20px;width:300px;height:260px;margin-left:-150px;transform-style:preserve-3d;transform:translateZ(calc(-1 * var(--r)));transition:transform 1.1s cubic-bezier(.3,.8,.2,1)}
+.ring .t3d{position:absolute;inset:0;transform:rotateY(calc(var(--i) * 90deg)) translateZ(var(--r));backface-visibility:hidden;background:var(--bg2)}
+.stars{color:var(--gold);letter-spacing:3px}
+.q{font-size:14px;margin:10px 0 14px}
+.who{font-size:13px}.who small{color:var(--cyan);display:block}
+.nb{display:flex;justify-content:center;gap:14px;margin-top:6px}
+.nb button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:20px;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.25);transition:.15s}
+.nb button:active{transform:translateY(3px);box-shadow:none}
+.contact{background:linear-gradient(135deg,#16307a,#0B132B);color:#fff;border-radius:34px;padding:48px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.tm{background:rgba(255,255,255,.08);border-radius:18px;padding:16px 20px;margin:20px 0}
+.tm div{display:flex;justify-content:space-between;padding:4px 0}
+.tm b{color:var(--gold)}
+.contact ul{list-style:none;padding:0;margin:0 0 6px}.contact li{margin-bottom:10px;font-size:14px}
+form{display:grid;gap:12px}
+input,select{width:100%;padding:13px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font:14px Poppins;outline:0}
+input:focus,select:focus{border-color:var(--cyan)}
+select option{color:#0B132B}
+input::placeholder{color:#a9b4d6}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+footer{padding:50px 0 100px;text-align:center;color:var(--muted);font-size:13px}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-bottom:12px}
+.fw{position:fixed;right:24px;bottom:24px;z-index:50;width:58px;height:58px}
+.fw:before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);animation:ring 2s ease-out infinite}
+.fw a{position:relative;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;font-size:28px;box-shadow:0 5px 0 #0a7a58,0 14px 26px -6px #10b981}
+.fw span{position:absolute;right:70px;top:50%;transform:translateY(-50%);background:#0B132B;color:#fff;border:1px solid rgba(255,255,255,.2);font-size:12px;padding:7px 12px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+.fw:hover span{opacity:1}
+@keyframes ring{from{transform:scale(1);opacity:.55}to{transform:scale(1.9);opacity:0}}
+.rv{opacity:0;transform:perspective(900px) rotateX(16deg) translateY(44px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:960px){
+.links{display:none;position:absolute;top:70px;left:12px;right:12px;flex-direction:column;background:rgba(11,19,43,.96);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:10px}
+.links.open{display:flex}.burger{display:block}.badge{display:none}
+.hero .wrap{grid-template-columns:1fr;padding-top:34px}.stage{height:400px}
+.g2,.g3,.g4,.split,.contact{grid-template-columns:1fr}.contact{padding:30px 22px}
+.ring{--r:250px;width:260px;margin-left:-130px}.nav .btn.sm{display:none}
+}
+@media(min-width:961px) and (max-width:1100px){.g4{grid-template-columns:repeat(2,1fr)}.badge{display:none}}
+@media(prefers-reduced-motion:reduce){.cube{animation:none}.rv{transition:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="strip">Morning <b>10:00 AM – 1:00 PM</b> &nbsp;|&nbsp; Evening <b>5:00 PM – 9:00 PM</b> &nbsp;|&nbsp; Admissions open 2026-27</div>
+<header><div class="nav">
+<a href="#home" class="logo"><i>S</i>SHAAD’S ACADEMY</a>
+<nav class="links" id="links"><a href="#home">Home</a><a href="#why">Why Us</a><a href="#programs">Programs</a><a href="#toss">TOSS & Computer</a><a href="#batches">Batches</a><a href="#contact">Contact</a></nav>
+<span class="badge">Morning 10am-1pm | Evening 5pm-9pm</span>
+<a class="btn sm wa" href="#">Admissions Open 2026-27</a>
+<button class="burger" id="burger" aria-label="Menu">☰</button>
+</div></header>
+
+<div class="hero" id="home"><div class="wrap">
+<div>
+<span class="pill">🕘 Morning 10:00 AM – 1:00 PM · Evening 5:00 PM – 9:00 PM</span>
+<h1>Empowering Students Through <em>Quality Education</em> & Modern Skills</h1>
+<p>TOSS SSC & Intermediate coaching with full classroom teaching, plus hands-on computer training for every age.</p>
+<div class="chips"><span>✔ TOSS Certified Prep</span><span>💻 Computer Education</span><span>⏰ Flexible Batches</span></div>
+<div class="cta"><a class="btn wa" href="#">Apply Now →</a><a class="btn ghost wa" href="#">Inquire for Admission</a></div>
+</div>
+<div class="stage"><canvas id="gl" aria-label="3D graduation cap, books and laptop floating"></canvas></div>
+</div><div class="scroll">SCROLL ↓</div></div>
+
+<section id="batches"><div class="wrap">
+<div class="rv center"><div class="eyebrow">Batch Schedule</div><h2>Pick the timing that fits your day</h2><p class="lead">Regular students and working individuals can both plan easily.</p></div>
+<div class="grid g2">
+<div class="t3d tilt rv"><div class="slot z"><em>☀️</em><div class="m"><span>Morning Batch</span><b>10:00 AM – 1:00 PM</b><span>Ideal for regular students</span></div></div></div>
+<div class="t3d tilt rv"><div class="slot z"><em>🌙</em><div class="e"><span>Evening Batch</span><b>5:00 PM – 9:00 PM</b><span>Perfect for working individuals</span></div></div></div>
+</div></div></section>
+
+<section id="programs"><div class="wrap">
+<div class="rv center"><div class="eyebrow">Programs</div><h2>Academic & Special Programs</h2><p class="lead">Hover a card to see what is inside.</p></div>
+<div class="grid g3">
+<div class="t3d tilt rv"><div class="ico z">🎓</div><h3 class="z2">TOSS Exam Coaching</h3><p>Full teaching support, study materials and complete exam preparation.</p><ul class="feat"><li>Full classroom teaching</li><li>Syllabus coverage</li><li>Exam preparation</li></ul><a class="more wa" href="#">Inquire for Admission →</a></div>
+<div class="t3d tilt rv"><div class="ico z">💻</div><h3 class="z2">Computer Training & IT Literacy</h3><p>Hands-on lab learning from fundamentals to advanced applications.</p><ul class="feat"><li>Practical lab sessions</li><li>Coding basics</li><li>All age groups</li></ul><a class="more wa" href="#">Inquire for Admission →</a></div>
+<div class="t3d tilt rv"><div class="ico z">📚</div><h3 class="z2">Academic Foundations</h3><p>Core subject coaching and competitive exam prep.</p><ul class="feat"><li>Doubt-clearing sessions</li><li>Regular tests</li><li>Personal feedback</li></ul><a class="more wa" href="#">Inquire for Admission →</a></div>
+</div></div></section>
+
+<section id="toss"><div class="wrap split">
+<div class="rv"><div class="eyebrow">TOSS & Computer Prep</div><h2>Finish school. Build digital skills.</h2>
+<p class="lead" style="margin-bottom:18px">TOSS SSC & Intermediate students get full classroom teaching and exam guidance. Everyone learns computers by doing, inside our lab.</p>
+<div class="cta"><a class="btn wa" href="#">Book Campus Tour</a><a class="btn ghost wa" href="#">Apply Now</a></div></div>
+<div class="scene3 rv"><div class="cube"><div class="f1">Full Syllabus</div><div class="f2">Computer Lab</div><div class="f3">Study Material</div><div class="f4">Mock Tests</div><div class="f5">Guidance</div><div class="f6">Doubt Classes</div></div></div>
+</div></section>
+
+<section id="why"><div class="wrap">
+<div class="rv center"><div class="eyebrow">Why Us</div><h2>Why choose SHAAD’S ACADEMY</h2></div>
+<div class="grid g4" style="margin-top:36px">
+<div class="t3d tilt rv"><div class="num z">01</div><h3 class="z2">Expert Faculty</h3><p>Teachers who know the open school pattern well.</p></div>
+<div class="t3d tilt rv"><div class="num z">02</div><h3 class="z2">Full Teaching Guidance</h3><p>Complete support for open schooling students.</p></div>
+<div class="t3d tilt rv"><div class="num z">03</div><h3 class="z2">Modern Computer Labs</h3><p>Working systems for hands-on practice.</p></div>
+<div class="t3d tilt rv"><div class="num z">04</div><h3 class="z2">Flexible Timings</h3><p>Morning 10 to 1. Evening 5 to 9.</p></div>
+</div></div></section>
+
+<section id="process"><div class="wrap">
+<div class="rv center"><div class="eyebrow">Admission Process</div><h2>Four steps to enroll</h2></div>
+<div class="grid g4 steps" id="st" style="margin-top:36px">
+<div class="t3d"><div class="num">1</div><h3>Inquiry</h3><p>Message us on WhatsApp.</p></div>
+<div class="t3d"><div class="num">2</div><h3>Course Selection</h3><p>Regular, TOSS or Computer.</p></div>
+<div class="t3d"><div class="num">3</div><h3>Batch Selection</h3><p>Morning or evening.</p></div>
+<div class="t3d"><div class="num">4</div><h3>Enrollment</h3><p>Complete the form and start.</p></div>
+</div></div></section>
+
+<section id="stories"><div class="wrap">
+<div class="rv center"><div class="eyebrow">Success Stories</div><h2>Students and parents speak</h2></div>
+<div class="ringbox"><div class="ring" id="ring">
+<div class="t3d" style="--i:0"><div class="stars">★★★★★</div><p class="q">“I worked in the day and joined the evening batch. Passed my TOSS exam in the first attempt.”</p><div class="who">Ayesha K.<small>TOSS SSC student</small></div></div>
+<div class="t3d" style="--i:1"><div class="stars">★★★★★</div><p class="q">“Lab practice in every class. Now I handle Excel and Word at my office.”</p><div class="who">Rahul M.<small>Computer course graduate</small></div></div>
+<div class="t3d" style="--i:2"><div class="stars">★★★★★</div><p class="q">“Teachers clear every doubt. My son enjoys going to class now.”</p><div class="who">Mrs. Fatima<small>Parent</small></div></div>
+<div class="t3d" style="--i:3"><div class="stars">★★★★★</div><p class="q">“Regular tests and notes made my Intermediate preparation stress-free.”</p><div class="who">Sana S.<small>TOSS Intermediate student</small></div></div>
+</div></div>
+<div class="nb"><button id="pv" aria-label="Previous">‹</button><button id="nx" aria-label="Next">›</button></div>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="contact rv">
+<div><div class="eyebrow">Contact</div><h2 style="margin-top:8px">Visit us or message us</h2>
+<div class="tm"><div><span>Morning</span><b>10:00 AM – 1:00 PM</b></div><div><span>Evening</span><b>5:00 PM – 9:00 PM</b></div></div>
+<ul><li>📞 +91 6281190816</li><li>📍 Main Road, Hyderabad, Telangana (add campus address)</li></ul></div>
+<form id="f"><h3 style="margin:0">Quick admission inquiry</h3>
+<input required name="n" placeholder="Student or parent name">
+<div class="two"><select name="c"><option>Regular</option><option>TOSS</option><option>Computer</option></select><select name="t"><option>Morning</option><option>Evening</option></select></div>
+<input required name="p" type="tel" placeholder="Phone number">
+<button class="btn">Send on WhatsApp</button></form>
+</div></div></section>
+
+<footer><div class="wrap"><nav><a href="#home">Home</a><a href="#why">Why Us</a><a href="#programs">Programs</a><a href="#toss">TOSS & Computer</a><a href="#batches">Batches</a><a href="#contact">Contact</a></nav>
+<div style="margin-bottom:10px"><a class="wa" href="#">WhatsApp</a> · <a href="#contact">Instagram</a> · <a href="#contact">Facebook</a></div>© 2026 SHAAD’S ACADEMY. All rights reserved.</div></footer>
+<div class="fw"><a class="wa" href="#" aria-label="Chat with Admissions">✆</a><span>Chat with Admissions</span></div>
+
+<script>
+const WA="https://wa.me/916281190816?text=Hi%2C%20I%20am%20interested%20in%20your%20institution%20and%20I%20want%20to%20take%20an%20admission%20for%20my%20child.";
+document.querySelectorAll("a.wa").forEach(a=>{a.href=WA;a.target="_blank";a.rel="noopener noreferrer"});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+"ms";io.observe(el)});
+const lk=document.getElementById("links");
+document.getElementById("burger").onclick=()=>lk.classList.toggle("open");
+lk.querySelectorAll("a").forEach(a=>a.onclick=()=>lk.classList.remove("open"));
+const L=[...lk.querySelectorAll("a")];
+addEventListener("scroll",()=>{let c="#home";["home","batches","programs","toss","why","contact"].forEach(id=>{const e=document.getElementById(id);if(e&&e.getBoundingClientRect().top<180)c="#"+id});L.forEach(a=>a.classList.toggle("on",a.getAttribute("href")===c))},{passive:true});
+document.querySelectorAll(".tilt").forEach(c=>{c.addEventListener("mousemove",e=>{const b=c.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;c.style.transition="transform .08s";c.style.transform=`perspective(900px) rotateX(${-y*14}deg) rotateY(${x*14}deg) scale(1.03)`});c.addEventListener("mouseleave",()=>{c.style.transition="transform .5s";c.style.transform=""})});
+const st=[...document.querySelectorAll("#st .t3d")];let k=0;setInterval(()=>{st.forEach((c,i)=>c.classList.toggle("act",i===k));k=(k+1)%4},2400);
+let ang=0;const ring=document.getElementById("ring");
+const go=d=>{ang+=d*90;ring.style.transform=`translateZ(calc(-1 * var(--r))) rotateY(${ang}deg)`};
+document.getElementById("pv").onclick=()=>go(1);document.getElementById("nx").onclick=()=>go(-1);
+let rt=setInterval(()=>go(-1),4500);ring.parentElement.onmouseenter=()=>clearInterval(rt);ring.parentElement.onmouseleave=()=>{rt=setInterval(()=>go(-1),4500)};
+document.getElementById("f").onsubmit=e=>{e.preventDefault();const f=e.target;const m=`Hi, I am interested in your institution and I want to take admission for my child.\nName: ${f.n.value}\nCourse: ${f.c.value}\nPreferred Time: ${f.t.value}\nPhone: ${f.p.value}`;window.open("https://wa.me/916281190816?text="+encodeURIComponent(m),"_blank")};
+
+/* 3D hero */
+(function(){
+const cv=document.getElementById("gl");if(!window.THREE||!cv)return;
+let R;try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true})}catch(e){return}
+R.setPixelRatio(Math.min(devicePixelRatio||1,1.75));
+const S=new THREE.Scene(),C=new THREE.PerspectiveCamera(45,1,.1,100);C.position.set(0,.3,10);
+S.add(new THREE.AmbientLight(0x8fa0ff,.8));
+const l1=new THREE.PointLight(0x00f5d4,2.4,40);l1.position.set(-6,5,7);S.add(l1);
+const l2=new THREE.PointLight(0xffb703,2.2,40);l2.position.set(7,-3,6);S.add(l2);
+const root=new THREE.Group();S.add(root);
+const M=(c,o)=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.35,metalness:.35},o||{}));
+const gold=M(0xffb703,{metalness:.8,roughness:.25});
+const tilt=new THREE.Group();tilt.rotation.x=.32;root.add(tilt);
+const cap=new THREE.Group();tilt.add(cap);
+const board=new THREE.Mesh(new THREE.BoxGeometry(2.5,.13,2.5),M(0x16204f,{metalness:.6}));cap.add(board);
+cap.add(new THREE.LineSegments(new THREE.EdgesGeometry(board.geometry),new THREE.LineBasicMaterial({color:0x00f5d4})));
+const base=new THREE.Mesh(new THREE.CylinderGeometry(.85,.95,.65,40),M(0x1b2a6b));base.position.y=-.38;cap.add(base);
+const bt=new THREE.Mesh(new THREE.SphereGeometry(.1,16,16),gold);bt.position.y=.1;cap.add(bt);
+const cur=new THREE.CatmullRomCurve3([new THREE.Vector3(0,.1,0),new THREE.Vector3(.7,.2,.7),new THREE.Vector3(1.25,0,1.25),new THREE.Vector3(1.25,-.5,1.25)]);
+cap.add(new THREE.Mesh(new THREE.TubeGeometry(cur,24,.03,8),gold));
+const ts=new THREE.Mesh(new THREE.CylinderGeometry(.07,.13,.45,12),gold);ts.position.set(1.25,-.75,1.25);cap.add(ts);
+function book(c){const g=new THREE.Group();g.add(new THREE.Mesh(new THREE.BoxGeometry(1.1,.26,.8),M(c)));const p=new THREE.Mesh(new THREE.BoxGeometry(1.04,.2,.76),M(0xf4f1e8,{roughness:.85,metalness:0}));p.position.x=.06;g.add(p);return g}
+function laptop(){const g=new THREE.Group();g.add(new THREE.Mesh(new THREE.BoxGeometry(1.2,.06,.85),M(0x20284f)));const s=new THREE.Group();s.position.set(0,.03,-.42);s.rotation.x=-.25;const sc=new THREE.Mesh(new THREE.BoxGeometry(1.2,.78,.05),M(0x0f1636));sc.position.y=.39;s.add(sc);const gl=new THREE.Mesh(new THREE.PlaneGeometry(1.08,.66),new THREE.MeshBasicMaterial({color:0x00f5d4}));gl.position.set(0,.39,.03);s.add(gl);g.add(s);return g}
+const items=[{o:book(0xff4f9a),r:3.4,s:.5,y:.9,a:0},{o:book(0x27d3f5),r:3.6,s:.4,y:-.95,a:2.1},{o:book(0x8a5cf0),r:3.2,s:.6,y:.1,a:4.2},{o:laptop(),r:3.8,s:.35,y:1.8,a:1}];
+items.forEach(i=>root.add(i.o));
+const r1=new THREE.Mesh(new THREE.TorusGeometry(2.7,.02,12,140),new THREE.MeshBasicMaterial({color:0x00f5d4}));r1.rotation.x=1.2;root.add(r1);
+const r2=new THREE.Mesh(new THREE.TorusGeometry(3.1,.015,12,140),new THREE.MeshBasicMaterial({color:0xffb703}));r2.rotation.set(1.9,.4,0);root.add(r2);
+const ico=new THREE.Mesh(new THREE.IcosahedronGeometry(4.2,1),new THREE.MeshBasicMaterial({color:0x00f5d4,wireframe:true,transparent:true,opacity:.08}));root.add(ico);
+const N=500,pa=new Float32Array(N*3);for(let i=0;i<N;i++){const r=4.5+Math.random()*5,t=Math.random()*6.283,p=Math.acos(2*Math.random()-1);pa[i*3]=r*Math.sin(p)*Math.cos(t);pa[i*3+1]=r*Math.cos(p);pa[i*3+2]=r*Math.sin(p)*Math.sin(t)}
+const pg=new THREE.BufferGeometry();pg.setAttribute("position",new THREE.BufferAttribute(pa,3));
+const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffd36a,size:.05,transparent:true,opacity:.8}));S.add(pts);
+function rs(){const b=cv.parentElement.getBoundingClientRect();R.setSize(b.width,b.height,false);C.aspect=b.width/b.height;C.updateProjectionMatrix();root.scale.setScalar(b.width<520?.62:b.width<760?.75:.95)}
+rs();new ResizeObserver(rs).observe(cv.parentElement);
+let mx=0,my=0,vis=true;addEventListener("mousemove",e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(cv);
+const clk=new THREE.Clock();
+(function loop(){requestAnimationFrame(loop);if(!vis)return;const t=clk.getElapsedTime(),d=clk.getDelta();
+root.rotation.y+=(mx*.9-root.rotation.y)*.05;root.rotation.x+=(my*.5-root.rotation.x)*.05;root.position.y=Math.sin(t*.8)*.18;
+cap.rotation.y=t*.45;
+items.forEach(i=>{const a=i.a+t*i.s;i.o.position.set(Math.cos(a)*i.r,i.y+Math.sin(t+i.a)*.18,Math.sin(a)*i.r*.8);i.o.rotation.y=-a+Math.PI/2;i.o.rotation.z=Math.sin(t*.7+i.a)*.18});
+r1.rotation.z=t*.3;r2.rotation.z=-t*.22;ico.rotation.y=t*.06;pts.rotation.y=t*.03;
+R.render(S,C)})();
+})();
+</script>
+</body>
+</html>
